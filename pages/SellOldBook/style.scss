@@ -1,0 +1,47 @@
+.sell-old-book {
+    margin: 0 3%;
+    .title {
+        background-color: #F1F1F1;
+        display: flex;
+        align-items: center;
+        margin: 16px 0;
+        height: 76px;
+        font-size: 24px;
+        .icon {
+            background-color: #2F70AF;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 76px;
+            color: white;
+            font-size: 36px;
+        }
+        .sub-title {
+            padding-left: 14px;
+            font-weight: bold;
+        }
+    }
+    .action {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 16px;
+        .filter {
+            display: flex;
+            align-items: center;
+            .name {
+                background-color: #1677ff;
+                display: inline-block;
+                height: 32px;
+                color: white;
+                padding: 0 12px;
+                margin: auto;
+                line-height: 32px;
+            }
+            .ant-select-selector {
+                border-radius: 0
+            }
+        }
+    }
+}
