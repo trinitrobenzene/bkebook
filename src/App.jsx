@@ -1,5 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import { Header, Footer } from '../components';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from '../pages/Home';
 
 function App() {
