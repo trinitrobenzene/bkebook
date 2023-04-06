@@ -1,10 +1,17 @@
-import React from 'react';
-import './style.scss';
+import React, {useState} from 'react';
+import { useCookies } from "react-cookie";
 import { Button, Input } from 'antd';
+
+import './style.scss';
+import Login from '../../pages/Login'
 const { Search } = Input;
 
 const Header = () => {
+    const [cookies, setCookie] = useCookies(["user"]);
+    const [loginShow, setLoginShow] = useState(false);
+
     const onSearch = (value) => console.log(value);
+
     return (
         <header>
             <div className="mw">
@@ -13,9 +20,11 @@ const Header = () => {
                 <>
                     <Button>Thông báo</Button>
                     <Button>Giỏ hàng</Button>
-                    <Button>Tài khoản</Button>
+                    { cookies.username && <Button>Hello {cookies.username}</Button> }
+                    { !cookies.username && <Button onClick={()=>setLoginShow(true)}>Đăng nhập</Button> }
                 </>
             </div>
+            {loginShow && <Login isShow={loginShow} setShow={setLoginShow}/>}
         </header>
     );
 };
