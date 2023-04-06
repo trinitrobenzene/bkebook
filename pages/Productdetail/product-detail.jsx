@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import { Row, Col, Button, Rate, Carousel } from 'antd';
+import { Rating } from '../../components';
 
 import './productdetail.css'
 function BookDetail(props) {
@@ -36,29 +37,29 @@ function BookDetail(props) {
     <div className="book-detail">
       <Row>
         <Col span={8}>
-          <img style={{ objectFit: 'cover', width: '80%', height: '450px', marginTop: '10px',  marginLeft: '25px' }} src={book.image} alt={book.name} />  
+          <img style={{ objectFit: 'cover', width: '80%', height: '450px', marginTop: '10px',  marginLeft: '25px',marginBottom: '10px', }} src={book.image} alt={book.name} />  
           <Carousel autoplay dots infinite speed={10} slidesToShow={3} slidesToScroll={1} >
-            <div style={{  width: '50%', height: '130px',  }}>
-              <img style={{ objectFit: 'cover', width: '75%', height: '130px',  }} src="https://picsum.photos/800/300/?random=1" alt="image1" />
+            <div style={{  width: '50%', height: '150px',  }}>
+              <img style={{ objectFit: 'cover', width: '75%', height: '150px',  }} src={book.image} alt="image1" />
             </div>
-            <div style={{  width: '50%', height: '130px',  }}>
-              <img style={{ objectFit: 'cover', width: '75%', height: '130px', }} src="https://picsum.photos/800/300/?random=2" alt="image2" />
+            <div style={{  width: '50%', height: '150px',  }}>
+              <img style={{ objectFit: 'cover', width: '75%', height: '150px', }} src={book.image} alt="image2" />
             </div>
-            <div style={{  width: '50%', height: '130px',  }}>
-              <img style={{ objectFit: 'cover', width: '75%', height: '130px', }} src="https://picsum.photos/800/300/?random=3" alt="image3" />
+            <div style={{  width: '50%', height: '150px',  }}>
+              <img style={{ objectFit: 'cover', width: '75%', height: '150px', }} src={book.image} alt="image3" />
             </div>
-            <div style={{  width: '50%', height: '130px',  }}>
-              <img style={{ objectFit: 'cover', width: '75%', height: '130px', }} src="https://picsum.photos/800/300/?random=4" alt="image3" />
+            <div style={{  width: '50%', height: '150px',  }}>
+              <img style={{ objectFit: 'cover', width: '75%', height: '150px', }} src={book.image} alt="image3" />
             </div>
-            <div style={{  width: '50%', height: '130px',  }}>
-              <img style={{ objectFit: 'cover', width: '75%', height: '130px', }} src="https://picsum.photos/800/300/?random=5" alt="image3" />
+            <div style={{  width: '50%', height: '150px',  }}>
+              <img style={{ objectFit: 'cover', width: '75%', height: '150px', }} src={book.image} alt="image3" />
             </div>
           </Carousel>      
         </Col>
         <Col span={16} style={{  marginTop: '40px' }}>
           <h1>{book.name}</h1>
-          <p style={{ display: 'flex', marginTop: '10px', fontSize: 18 }}>Nhà xuất bản: <p style={{ color: '#2F70AF', marginLeft: '5px'  }}> {book.nsx}</p></p>
-          <p style={{ display: 'flex', marginTop: '10px', fontSize: 18 }}>Tác giả: <p style={{ color: '#2F70AF', marginLeft: '5px'  }}> {book.author}</p></p>
+          <p className='text' style={{ display: 'flex',  fontSize: 18 }}>Nhà xuất bản: <p style={{ color: '#2F70AF', marginLeft: '5px'  }}> {book.nsx}</p></p>
+          <p className='text' style={{ display: 'flex', fontSize: 18 }}>Tác giả: <p style={{ color: '#2F70AF', marginLeft: '5px'  }}> {book.author}</p></p>
           <Rate disabled defaultValue={2} />
           <p style={{ display: 'flex', marginTop: '10px', fontSize: 26, color: '#02315E', fontWeight: 'bold', }}>{book.price} Đ</p>
           <div style={{ display: 'flex', marginTop: '10px'}}>
@@ -75,15 +76,16 @@ function BookDetail(props) {
       </Row>
       
       <div className='header-detail'>
-          <p className='text'>THÔNG TIN CHI TIẾT</p>
+          <p className='text-title'>THÔNG TIN CHI TIẾT</p>
         </div>
-        <p style={{ marginTop: '10px', fontSize: 18 }}>Mã sách: {book.id}</p>
-        <p style={{ display: 'flex', marginTop: '10px', fontSize: 18 }}>Nhà xuất bản: <p style={{ color: '#2F70AF', marginLeft: '5px'  }}> {book.nsx}</p></p>
-        <p style={{ display: 'flex', marginTop: '10px', fontSize: 18 }}>Tác giả: <p style={{ color: '#2F70AF', marginLeft: '5px'  }}> {book.author}</p></p>
-        <p style={{ display: 'flex', marginTop: '10px', fontSize: 18 }}>Năm xuất bản: <p style={{ color: '#2F70AF', marginLeft: '5px'  }}> {book.year}</p></p>
-        <p style={{ display: 'flex', marginTop: '10px', fontSize: 18 }}>Ngôn ngữ: <p style={{ color: '#2F70AF', marginLeft: '5px'  }}> {book.language}</p></p>
-        <p style={{ display: 'flex', marginTop: '10px', fontSize: 18 }}>Số trang: <p style={{ color: '#2F70AF', marginLeft: '5px'  }}> {book.numberpage}</p></p>
-        <p style={{ marginTop: '10px'}}> {book.description}</p>
+        <p >Mã sách: {book.id}</p>
+        <p className='text'>Nhà xuất bản: <p style={{ color: '#2F70AF', marginLeft: '5px'  }}> {book.nsx}</p></p>
+        <p className='text'>Tác giả: <p style={{ color: '#2F70AF', marginLeft: '5px'  }}> {book.author}</p></p>
+        <p className='text'>Năm xuất bản: <p style={{ color: '#2F70AF', marginLeft: '5px'  }}> {book.year}</p></p>
+        <p className='text'>Ngôn ngữ: <p style={{ color: '#2F70AF', marginLeft: '5px'  }}> {book.language}</p></p>
+        <p className='text'>Số trang: <p style={{ color: '#2F70AF', marginLeft: '5px'  }}> {book.numberpage}</p></p>
+        <p className='text'> {book.description}</p>
+      <Rating/>
     </div>
   );
 }
