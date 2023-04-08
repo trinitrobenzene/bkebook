@@ -41,7 +41,7 @@ const MenuUser = () => {
             items={[
               {label: "Profile", key:"profile", icon:<UserOutlined/>},
               {label: "PurchaseOrder", key:"purchaseOrder", icon: <FileDoneOutlined/>},
-              // {label: "SaleOrder", icon: <DollarOutlined/>}
+              {label: "SellOrder", key: "sellOrder", icon: <DollarOutlined/>}
             ]}
           />
         </Sider>
