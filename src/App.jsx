@@ -1,7 +1,10 @@
 import { Route, Routes } from 'react-router-dom';
-import { Header, Footer } from '../components';
+import {  Footer, Header} from '../components';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from '../pages/Home';
+import User from '../pages/layout/User';
+import ProfilePage from '../pages/User/ProfilePage';
+import PurchaseOrderPage from '../pages/User/PurchaseOrderPage';
 
 function App() {
     return (
@@ -10,6 +13,11 @@ function App() {
             <div className="App mw">
                 <Routes>
                     <Route path="/" element={<Home />} />
+                    <Route path="/user" element={<User/>}>
+                        <Route path="profile" element={<ProfilePage/>}/>
+                        <Route path="purchaseOrder" element={<PurchaseOrderPage/>}/>
+                        {/* <Route path="saleOrder" element={<SaleOrder}/> */}
+                    </Route>
                 </Routes>
             </div>
             <Footer />
