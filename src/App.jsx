@@ -7,6 +7,7 @@ import ProfilePage from '../pages/User/ProfilePage';
 import PurchaseOrderPage from '../pages/User/PurchaseOrderPage';
 import SellOrderPage from '../pages/User/SellOrderPage';
 import SellOldBook from '../pages/SellOldBook';
+import RewardHistory from '../pages/User/RewardHistory';
 import Cart from '../pages/Cart';
 
 
@@ -21,6 +22,7 @@ function App() {
                         <Route path="profile" element={<ProfilePage/>}/>
                         <Route path="purchaseOrder" element={<PurchaseOrderPage/>}/>
                         <Route path="sellOrder" element={<SellOrderPage/>}/>
+                        <Route path="rewardHistory" element={<RewardHistory/>}/>
                     </Route>
                     <Route path="/sell" element={<SellOldBook/>} />
                     <Route path="/cart" element={<Cart/>} />
