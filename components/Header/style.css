@@ -1,0 +1,10 @@
+header {
+  background-color: #2F70AF;
+  color: white;
+  padding: 1rem 0;
+}
+header > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}/*# sourceMappingURL=style.css.map */
