@@ -8,6 +8,8 @@ import PurchaseOrderPage from '../pages/User/PurchaseOrderPage';
 import SellOrderPage from '../pages/User/SellOrderPage';
 import SellOldBook from '../pages/SellOldBook';
 import RewardHistory from '../pages/User/RewardHistory';
+import Cart from '../pages/Cart';
+
 
 function App() {
     return (
@@ -23,6 +25,7 @@ function App() {
                         <Route path="rewardHistory" element={<RewardHistory/>}/>
                     </Route>
                     <Route path="/sell" element={<SellOldBook/>} />
+                    <Route path="/cart" element={<Cart/>} />
                 </Routes>
             </div>
             <Footer />
