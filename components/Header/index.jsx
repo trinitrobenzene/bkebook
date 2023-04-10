@@ -1,17 +1,31 @@
-import React, {useState} from 'react';
+import React, { useState, useEffect } from 'react';
 import { useCookies } from "react-cookie";
 import { Button, Input } from 'antd';
 
 import './style.scss';
 import Login from '../../pages/Login'
+import { db } from '../../firebase-config';
+import { doc, getDoc } from 'firebase/firestore';
 const { Search } = Input;
 
 const Header = () => {
-    const [cookies, setCookie] = useCookies(["user"]);
+    const [cookies, setCookie] = useCookies(['isLogin']);
     const [loginShow, setLoginShow] = useState(false);
+    const [user, setUser] = useState(null)
 
     const onSearch = (value) => console.log(value);
 
+    useEffect(() => {
+        const docRef = doc(db, "user", cookies.email);
+        getDoc(docRef)
+            .then(resp => {
+                setUser({
+                    id: resp.id,
+                    fields: resp._document.data.value.mapValue.fields
+                })
+            });
+    }, []);
+    
     return (
         <header>
             <div className="mw">
@@ -20,11 +34,11 @@ const Header = () => {
                 <>
                     <Button>Thông báo</Button>
                     <Button>Giỏ hàng</Button>
-                    { cookies.username && <Button>Hello {cookies.username}</Button> }
-                    { !cookies.username && <Button onClick={()=>setLoginShow(true)}>Đăng nhập</Button> }
+                    {cookies.isLogin && user && <Button>Hello {Object.values(user.fields.name)[0]}</Button>}
+                    {!cookies.isLogin || !user && <Button onClick={() => setLoginShow(true)}>Đăng nhập</Button>}
                 </>
             </div>
-            {loginShow && <Login isShow={loginShow} setShow={setLoginShow}/>}
+            {loginShow && <Login isShow={loginShow} setShow={setLoginShow} />}
         </header>
     );
 };
