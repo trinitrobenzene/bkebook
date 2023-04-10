@@ -1,5 +1,5 @@
 import React from 'react';
-import { UserOutlined,FileDoneOutlined,DollarOutlined } from '@ant-design/icons';
+import { UserOutlined,FileDoneOutlined,DollarOutlined, StarOutlined } from '@ant-design/icons';
 // import { MenuProps } from 'antd';
 import { Layout,Menu } from 'antd';
 import { useNavigate } from 'react-router-dom';
@@ -35,13 +35,14 @@ const MenuUser = () => {
           <Menu
             onClick={({key})=>{navigate(key)}}
             mode="inline"
-            defaultSelectedKeys={['1']}
-            defaultOpenKeys={['sub1']}
-            style={{ height: '100%', borderRight: 0 }}
+            // defaultSelectedKeys={['1']}
+            // defaultOpenKeys={['sub1']}
+            style={{ height: '100vh', borderRight: 0 }}
             items={[
               {label: "Profile", key:"profile", icon:<UserOutlined/>},
               {label: "PurchaseOrder", key:"purchaseOrder", icon: <FileDoneOutlined/>},
-              {label: "SellOrder", key: "sellOrder", icon: <DollarOutlined/>}
+              {label: "SellOrder", key: "sellOrder", icon: <DollarOutlined/>},
+              {label: "RewardHistory", key: "rewardHistory", icon: <StarOutlined/>}
             ]}
           />
         </Sider>

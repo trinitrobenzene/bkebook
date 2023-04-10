@@ -6,14 +6,14 @@ import { Outlet } from 'react-router-dom';
 const User = () => {
   return (
     <>
-        <Row >
-            <Col span={5} style={{ backgroundColor:"grey"}}>
-              <MenuUser/>
-            </Col>
-            <Col span ={19} style={{padding:"10px 30px"}}>
-              <Outlet/>
-            </Col>
-        </Row>
+      <Row >
+        <Col span={5} style={{ backgroundColor: "grey" }}>
+          <MenuUser />
+        </Col>
+        <Col span={19} style={{ padding: "10px 30px" }}>
+          <Outlet />
+        </Col>
+      </Row>
     </>
   )
 }

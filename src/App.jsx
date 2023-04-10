@@ -6,6 +6,7 @@ import User from '../pages/layout/User';
 import ProfilePage from '../pages/User/ProfilePage';
 import PurchaseOrderPage from '../pages/User/PurchaseOrderPage';
 import SellOrderPage from '../pages/User/SellOrderPage';
+import RewardHistory from '../pages/User/RewardHistory';
 
 function App() {
     return (
@@ -18,6 +19,7 @@ function App() {
                         <Route path="profile" element={<ProfilePage/>}/>
                         <Route path="purchaseOrder" element={<PurchaseOrderPage/>}/>
                         <Route path="sellOrder" element={<SellOrderPage/>}/>
+                        <Route path="rewardHistory" element={<RewardHistory/>}/>
                     </Route>
                 </Routes>
             </div>
