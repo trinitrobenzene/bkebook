@@ -52,18 +52,17 @@ const RewardHistory = () => {
         dataSource={data}
         renderItem={(item) => (
           <List.Item>
-          <div>
             <div>
-              <Typography.Text style={{ color: '#f6a700' }}>{item.icon}</Typography.Text> {item.title}
+              <div>
+                <Typography.Text style={{ color: '#f6a700' }}>{item.icon}</Typography.Text> {item.title}
+              </div>
+              <div>
+                <Typography.Text style={{ color: '#f6a700' }}></Typography.Text> {item.timesptamp}
+              </div>
             </div>
             <div>
-              <Typography.Text style={{ color: '#f6a700' }}></Typography.Text> {item.timesptamp}
+              <Typography.Text style={{ color: '#f6a700' }}></Typography.Text> {item.point} xu
             </div>
-          </div>
-          <div>
-            <Typography.Text style={{ color: '#f6a700' }}></Typography.Text> {item.point} xu
-          </div>
-
           </List.Item>
         )}
       />
