@@ -6,6 +6,7 @@ import User from '../pages/layout/User';
 import ProfilePage from '../pages/User/ProfilePage';
 import PurchaseOrderPage from '../pages/User/PurchaseOrderPage';
 import SellOrderPage from '../pages/User/SellOrderPage';
+import SellOldBook from '../pages/SellOldBook';
 
 function App() {
     return (
@@ -19,6 +20,7 @@ function App() {
                         <Route path="purchaseOrder" element={<PurchaseOrderPage/>}/>
                         <Route path="sellOrder" element={<SellOrderPage/>}/>
                     </Route>
+                    <Route path="/sell" element={<SellOldBook/>} />
                 </Routes>
             </div>
             <Footer />
