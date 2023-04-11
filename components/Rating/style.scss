@@ -1,0 +1,58 @@
+.rating {
+    .title {
+        background-color: #2F70AF;
+        margin: 24px 0;
+        font-size: 24px;
+        height: 60px;
+        line-height: 60px;
+        color: white;
+        padding-left: 18px;
+    }
+    .overview {
+        margin-bottom: 12px;
+        .average {
+            display: inline-block;
+            font-size: 48px;
+            font-weight: bold;
+            margin-right: 12px;
+        }
+    }
+    .rating-list {
+        .rating-item {
+            display: flex;
+            border: 1px solid #e7e7e7;
+            margin-bottom: 24px;
+            padding: 12px;
+            .user {
+                .name {
+                    font-size: 20px;
+                    font-weight: bold;
+                    
+                }
+                .date {
+                    margin-top: 8px;
+                    color: #888888;
+                    font-size: 16px;
+                }
+            }
+            .rate-content {
+                .content {
+                    margin-top: 8px;
+                    text-align: justify;
+                }
+            }
+        }
+    }
+
+
+}
+.rate-modal {
+    .ant-modal-body {
+        display: flex;
+        flex-direction: column;
+        .ant-rate {
+            align-self: center;
+            margin-bottom: 12px;
+        }
+    }
+}

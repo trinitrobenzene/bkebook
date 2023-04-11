@@ -24,7 +24,6 @@ const Header = () => {
         handleLogout();
         navigate('/');
     }
-
     const items = [
         {
             key: 0,
@@ -50,24 +49,20 @@ const Header = () => {
     return (
         <header>
             <div className="mw">
-                <h2>Logo</h2>
+                <Link to='/'>
+                    <h2>Logo</h2>
+                </Link>
                 <Search placeholder="input search text" onSearch={onSearch} />
-                <>
-                    <Button>Thông báo</Button>
-                    <Button>Giỏ hàng</Button>
-                    {cLogin && user && <Dropdown
-                        menu={{ items }}
-                        trigger={['click']}
-                    >
-                        <Button>
-                            <Space>
-                                Chào{user.name}
-                                <CaretDownFilled />
-                            </Space>
-                        </Button>
-                    </Dropdown>}
-                    {!cLogin && <Button onClick={() => setLoginShow(true)}>Đăng nhập</Button>}
-                </>
+                <Button onClick={() => navigate('/cart')}>Giỏ hàng</Button>
+                {cLogin && user && <Dropdown menu={{ items }} trigger={['click']}>
+                    <Button>
+                        <Space>
+                            <span>Chào {user.name}</span>
+                            <CaretDownFilled />
+                        </Space>
+                    </Button>
+                </Dropdown>}
+                {!cLogin && <Button onClick={() => setLoginShow(true)}>Đăng nhập</Button>}
             </div>
             {loginShow && <Authen isShow={loginShow} setShow={setLoginShow} />}
         </header>
