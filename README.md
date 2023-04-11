@@ -10,7 +10,7 @@ yarn
 
 Then, start the server:
 ```
-npm run dev`
+npm run dev
 # or
 yarn dev
 ```

@@ -13,6 +13,8 @@ dist-ssr
 *.local
 
 *.sublime*
+*.sublime-project
+*.sublime-workspace
 
 # Editor directories and files
 .vscode/*
