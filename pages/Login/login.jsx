@@ -1,18 +1,16 @@
 import React from 'react';
 import { Button, Input, Modal } from 'antd';
-import { useCookies } from "react-cookie";
 
 import './style.scss';
 import { useState } from 'react';
+import { handleLogin } from '../../utils/authen';
 
 const Login = ({ isShow, setShow, callback }) => {
-    const [cookies, setCookie] = useCookies(["isLogin"]);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const handleLogin = () => {
-        setCookie('email', email, { path: '/' });
-        setCookie('isLogin', true, { path: '/' });
-        setShow(false);
+    const login = () => {
+        handleLogin(email);
+        setShow(false)
     }
     return (
         <Modal
@@ -39,7 +37,7 @@ const Login = ({ isShow, setShow, callback }) => {
                     </p>
                 </div>
                 <div>
-                    <Button onClick={handleLogin} type="primary" size='large'>
+                    <Button onClick={login} type="primary" size='large'>
                         Đăng nhập
                     </Button>
                 </div>

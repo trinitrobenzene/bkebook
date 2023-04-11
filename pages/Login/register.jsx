@@ -1,6 +1,5 @@
 import React from 'react';
 import { Button, Input, Modal } from 'antd';
-import { useCookies } from "react-cookie";
 
 import './style.scss';
 import { useState } from 'react';
