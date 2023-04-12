@@ -39,10 +39,10 @@ const MenuUser = () => {
             // defaultOpenKeys={['sub1']}
             style={{ height: '100vh', borderRight: 0 }}
             items={[
-              {label: "Profile", key:"profile", icon:<UserOutlined/>},
-              {label: "PurchaseOrder", key:"purchaseOrder", icon: <FileDoneOutlined/>},
-              {label: "SellOrder", key: "sellOrder", icon: <DollarOutlined/>},
-              {label: "RewardHistory", key: "rewardHistory", icon: <StarOutlined/>}
+              {label: "Hồ sơ của tôi", key:"profile", icon:<UserOutlined/>},
+              {label: "Lịch sử mua hàng", key:"purchaseOrder", icon: <FileDoneOutlined/>},
+              {label: "Lịch sử bán hàng", key: "sellOrder", icon: <DollarOutlined/>},
+              {label: "Lịch sử tích điểm", key: "rewardHistory", icon: <StarOutlined/>}
             ]}
           />
         </Sider>

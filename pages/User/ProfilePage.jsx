@@ -5,19 +5,21 @@ const ProfilePage = () => {
   const [visible, setVisible] = useState(false);
   return (
     <div style={{ height: "100vh", backgroundColor: "white", color: "black", }}>
-      <Divider orientation="left">Hồ Sơ Của Tôi</Divider>
+      <Divider orientation="left">HỒ SƠ CỦA TÔI</Divider>
       
       <Row>
         <Col span={12} style={{ borderRight: "1px solid #ccc" }}>
-          <Form>
+          <Form
+            labelCol={{span: 4}}
+          >
             <Form.Item label="Họ và tên">
-              <Input placeholder="input placeholder" style={{ width: "50%" }} />
+              <Input placeholder="Nhập tên" style={{ width: "70%" }} />
             </Form.Item>
             <Form.Item label="Email" >
-              <Input placeholder="bookstore@hcmut.edu.vn" style={{ width: "50%" }} />
+              <Input placeholder="bookstore@hcmut.edu.vn" style={{ width: "70%" }} />
             </Form.Item>
             <Form.Item label="SĐT">
-              <Input placeholder="0908456053" style={{ width: "50%" }} />
+              <Input placeholder="0908456053" style={{ width: "70%" }} />
             </Form.Item>
             <Form.Item label="Giới tính" name="layout">
               <Radio.Group >
@@ -31,8 +33,10 @@ const ProfilePage = () => {
                 <DatePicker picker="date" placeholder="Chọn ngày" />
               </Space>
             </Form.Item>
-            <Form.Item>
-              <Button type="primary">Submit</Button>
+            <Form.Item
+              wrapperCol={{offset: 4}}
+            >
+              <Button type="primary">Cập nhật thông tin</Button>
             </Form.Item>
           </Form>
         </Col>
