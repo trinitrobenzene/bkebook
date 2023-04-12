@@ -6,7 +6,7 @@ const OldBookItem = ({item}) => {
     return (
         <div className="old-book-item">
             <img src="/book.png" alt="book"/>
-            <div className="info">
+            <div className="info-item">
                 <div className="name">{item.name || ""}</div>
                 <div className="price">{item.price || ""} Đ</div>
                 <div className="date">Ngày đăng bán: {item.date || ""}</div>

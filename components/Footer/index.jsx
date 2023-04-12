@@ -1,8 +1,14 @@
 import React from 'react';
 import './style.scss';
-import {FacebookOutlined,InstagramOutlined,LinkedinOutlined } from '@ant-design/icons';
-import { Row,Col } from 'antd';
-export default function Footer(){
+import {
+    FacebookOutlined,
+    InstagramOutlined,
+    LinkedinOutlined,
+} from '@ant-design/icons';
+
+import { Row, Col } from 'antd';
+
+export default function Footer() {
     return (
         <footer>
             {/* <Container fluid> */}
@@ -42,4 +48,4 @@ export default function Footer(){
             {/* </Container> */}
         </footer>
     );
-};
+}
