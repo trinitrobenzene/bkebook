@@ -27,7 +27,7 @@ function OrderItem({order}) {
                     <div className="item">
                         <div className="info-item">
                             <img src="/book.png" alt="book"/>
-                            <div className="info">
+                            <div className="info-book">
                                 <h3>{item.name || ""}</h3>
                                 <div className="publisher">{item.publisher || ""}</div>
                                 <div className="count">x {item.count || ""}</div>

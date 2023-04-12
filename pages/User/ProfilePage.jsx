@@ -15,15 +15,17 @@ const ProfilePage = () => {
 
       <Row>
         <Col span={12} style={{ borderRight: "1px solid #ccc" }}>
-          <Form>
+          <Form
+            labelCol={{span: 4}}
+          >
             <Form.Item label="Họ và tên">
-              <Input placeholder="input placeholder" style={{ width: "50%" }} />
+              <Input placeholder="Nhập tên" style={{ width: "70%" }} />
             </Form.Item>
             <Form.Item label="Email" >
-              <Input placeholder="bookstore@hcmut.edu.vn" style={{ width: "50%" }} />
+              <Input placeholder="bookstore@hcmut.edu.vn" style={{ width: "70%" }} />
             </Form.Item>
             <Form.Item label="SĐT">
-              <Input placeholder="0908456053" style={{ width: "50%" }} />
+              <Input placeholder="0908456053" style={{ width: "70%" }} />
             </Form.Item>
             <Form.Item label="Giới tính" name="layout">
               <Radio.Group >

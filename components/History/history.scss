@@ -10,6 +10,7 @@
             justify-content: space-between;
             margin-bottom: 12px;
             align-items: center;
+            background-color: white;
             .status {
                 font-weight: bold;
                 span {
@@ -20,7 +21,8 @@
                 color: green;
             }
             .progress {
-                color: rgb(244, 207, 41)
+                color: rgb(244, 207, 41);
+                background-color: white;
             }
         }
         .list-item {
@@ -31,11 +33,14 @@
                 .info-item {
                     display: flex;
                     img {
-                        height: 120px;
+                        height: 100%;
                     }
-                    .info {
+                    .info-book {
                         align-self: center;
                         padding-left: 12px;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
                         .publisher {
                             color: #9e9d9d
                         }
@@ -61,10 +66,14 @@
             }
             .total {
                 margin-bottom: 12px;
+                background-color: white;
+                display: flex;
+                align-items: center;
                 span {
-                    font-size: 24px;
+                    font-size: 20px;
                     font-weight: bold;
                     color: #2F70AF;
+                    margin-left: 24px;
                 }
             }
         }

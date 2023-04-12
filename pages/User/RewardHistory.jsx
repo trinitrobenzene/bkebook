@@ -35,7 +35,7 @@ const RewardHistory = () => {
   ];
   return (
     <>
-      <Divider orientation="left">Lịch sử tích điểm</Divider>
+      <Divider orientation="left">LỊCH SỬ TÍCH ĐIỂM</Divider>
       <List
         header={
           <div style={{ display: 'flex', justifyContent: 'space-between' }}>

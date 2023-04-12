@@ -10,7 +10,7 @@ const User = () => {
   return (
     <>
       <Row >
-        <Col span={5} style={{ backgroundColor: "grey" }}>
+        <Col span={5}>
           <MenuUser />
         </Col>
         <Col span={19} style={{ padding: "10px 30px" }}>
