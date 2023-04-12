@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { Button, Dropdown, Input, Space } from 'antd';
 import { db } from '../../firebase-config';
 import { doc, getDoc } from 'firebase/firestore';
-import { CaretDownFilled } from '@ant-design/icons';
+import { CaretDownFilled, ShoppingCartOutlined  } from '@ant-design/icons';
 import Cookies from 'js-cookie'
 
 import './style.scss';
@@ -54,7 +54,7 @@ const Header = () => {
                     <img src="/bkebook_logo.png" className="logo-header"/>
                 </Link>
                 <Search placeholder="input search text" onSearch={onSearch} />
-                <Button onClick={() => navigate('/cart')}>Giỏ hàng</Button>
+                <ShoppingCartOutlined style={{fontSize: 34}} onClick={() => navigate('/cart')}/>
                 {cLogin && user && <Dropdown menu={{ items }} trigger={['click']}>
                     <Button>
                         <Space>
