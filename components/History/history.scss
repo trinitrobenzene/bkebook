@@ -10,6 +10,7 @@
             justify-content: space-between;
             margin-bottom: 12px;
             align-items: center;
+            background-color: white;
             .status {
                 font-weight: bold;
                 span {
@@ -34,7 +35,7 @@
                     img {
                         height: 100%;
                     }
-                    .info {
+                    .info-book {
                         align-self: center;
                         padding-left: 12px;
                         display: flex;
