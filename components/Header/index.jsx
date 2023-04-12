@@ -49,9 +49,9 @@ const Header = () => {
 
     return (
         <header>
-            <div className="mw">
+            <div className="mw header-container">
                 <Link to='/'>
-                    <h2>Logo</h2>
+                    <img src="/bkebook_logo.png" className="logo-header"/>
                 </Link>
                 <Search placeholder="input search text" onSearch={onSearch} />
                 <ShoppingCartOutlined style={{fontSize: 34}} onClick={() => navigate('/cart')}/>
