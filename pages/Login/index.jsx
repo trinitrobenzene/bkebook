@@ -1,11 +1,14 @@
-import React from 'react';
+import { useState } from 'react';
+import Login from './login';
+import Register from './register';
 
-const Login = () => {
-    return (
-        <div>
-            <h1>Login</h1>
-        </div>
+const Authen = (props) => {
+    const [option, setOption] = useState(true);
+    return option ? (
+        <Login callback={setOption} {...props} />
+    ) : (
+        <Register callback={setOption} {...props} />
     );
 };
 
-export default Login;
+export default Authen;

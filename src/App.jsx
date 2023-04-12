@@ -1,15 +1,16 @@
 import { Route, Routes } from 'react-router-dom';
-import {  Footer, Header} from '../components';
-//import 'bootstrap/dist/css/bootstrap.min.css';
-import Home from '../pages/Home';
-import User from '../pages/layout/User';
-import ProfilePage from '../pages/User/ProfilePage';
-import PurchaseOrderPage from '../pages/User/PurchaseOrderPage';
-import SellOrderPage from '../pages/User/SellOrderPage';
-import SellOldBook from '../pages/SellOldBook';
-import RewardHistory from '../pages/User/RewardHistory';
-import Cart from '../pages/Cart';
-
+import { Footer, Header } from '../components';
+import {
+    Home,
+    Cart,
+    BookDetail,
+    SellOldBook,
+    UserLayout,
+    UserProfile,
+    UserPurchase,
+    UserRewards,
+    UserSell,
+} from '../pages';
 
 function App() {
     return (
@@ -18,14 +19,15 @@ function App() {
             <div className="App mw">
                 <Routes>
                     <Route path="/" element={<Home />} />
-                    <Route path="/user" element={<User/>}>
-                        <Route path="profile" element={<ProfilePage/>}/>
-                        <Route path="purchaseOrder" element={<PurchaseOrderPage/>}/>
-                        <Route path="sellOrder" element={<SellOrderPage/>}/>
-                        <Route path="rewardHistory" element={<RewardHistory/>}/>
+                    <Route path="/user" element={<UserLayout />}>
+                        <Route path="profile" element={<UserProfile />} />
+                        <Route path="purchase" element={<UserPurchase />} />
+                        <Route path="sell" element={<UserSell />} />
+                        <Route path="reward" element={<UserRewards />} />
                     </Route>
-                    <Route path="/sell" element={<SellOldBook/>} />
-                    <Route path="/cart" element={<Cart/>} />
+                    <Route path="/sell" element={<SellOldBook />} />
+                    <Route path="/cart" element={<Cart />} />
+                    <Route path="/detail/:id" element={<BookDetail />} />
                 </Routes>
             </div>
             <Footer />

@@ -1,0 +1,34 @@
+.header{
+    background-color: #2F70AF ;
+    margin: 10px;
+    padding: 10px;
+}
+.text-title{
+    color: white;
+    font-size: 20px;
+    margin-bottom: 0 !important;
+}
+
+.booklist {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1rem;
+}
+
+.booklist img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    margin-bottom: 1rem;
+}
+
+.booklist .ant-card-body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.booklist .ant-card-body > div {
+    flex-grow: 1;
+}

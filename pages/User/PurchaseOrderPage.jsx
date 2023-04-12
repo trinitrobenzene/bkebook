@@ -42,12 +42,8 @@ const PurchaseOrderPage = () => {
 
 
   return (
-    <div className="history" style={{height:"100vh", backgroundColor:"White",color:"black"}}>
-        <Divider
-          orientation="left"
-        >
-          LỊCH SỬ MUA HÀNG
-        </Divider>
+    <div className="history">
+        <Divider orientation="left">LỊCH SỬ MUA HÀNG</Divider>
         {
           fakeData.map((item, index) => (
             <OrderItem order={item} key={index}/>

@@ -42,6 +42,9 @@
     padding-top: 20%;
     padding-left: 0;
     padding-right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
   }
   .info{
     display: grid;
@@ -100,8 +103,7 @@
     padding-top: 10px;
   }
   img{
-  
-    height: 100px;
+    /* height: 100px; */
     width: 100px;
   }
   input[type=checkbox]{
