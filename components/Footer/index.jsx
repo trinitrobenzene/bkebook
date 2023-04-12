@@ -43,6 +43,12 @@ export default function Footer() {
                     </Col>               
                     <Col xs={24} md={12} lg={6}>
                         <h3>Logo</h3>
+                        <img style={{
+                                        width: '70%',
+                                        height: '60px',
+                                    }}
+                                    src='https://cdn.dangkywebsitevoibocongthuong.com/wp-content/uploads/2018/06/logo.png'/>
+
                     </Col>
                 </Row>
             {/* </Container> */}
