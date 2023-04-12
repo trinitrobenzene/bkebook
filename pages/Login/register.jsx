@@ -3,13 +3,14 @@ import { Button, Input, Modal } from 'antd';
 
 import './style.scss';
 import { useState } from 'react';
+import { handleSignUp } from '../../utils/authen';
 
 const Register = ({ isShow, setShow, callback }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [name, setName] = useState('');
     const handleRegister = () => {
-        console.log(email, password, name)
+        handleSignUp(name, email, password);
     }
     return (
         <Modal

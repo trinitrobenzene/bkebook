@@ -30,7 +30,7 @@ const MenuUser = () => {
   const navigate = useNavigate();
   return (
     <>  
-      <Layout style={{height:"100vh"}}>
+      <Layout>
         <Sider width="100%">
           <Menu
             onClick={({key})=>{navigate(key)}}
@@ -40,9 +40,9 @@ const MenuUser = () => {
             style={{ height: '100vh', borderRight: 0 }}
             items={[
               {label: "Profile", key:"profile", icon:<UserOutlined/>},
-              {label: "PurchaseOrder", key:"purchaseOrder", icon: <FileDoneOutlined/>},
-              {label: "SellOrder", key: "sellOrder", icon: <DollarOutlined/>},
-              {label: "RewardHistory", key: "rewardHistory", icon: <StarOutlined/>}
+              {label: "PurchaseOrder", key:"purchase", icon: <FileDoneOutlined/>},
+              {label: "SellOrder", key: "sell", icon: <DollarOutlined/>},
+              {label: "RewardHistory", key: "reward", icon: <StarOutlined/>}
             ]}
           />
         </Sider>
