@@ -26,8 +26,8 @@ export default function Footer(){
                     <Col xs={24} md={12} lg={6}>
                         <h3> Liên hệ</h3>
                         <ul>
-                            <li>Email:bookstore@hcmut.edu.vn</li>
-                            <li>Điện thoại:1800 1801</li>
+                            <li>Email: bookstore@hcmut.edu.vn</li>
+                            <li>Điện thoại: 1800 1801</li>
                             <li style={{display:"flex", gap:12}} className='mt-2'>
                                     <FacebookOutlined style={{fontSize: 48}}/>
                                     <InstagramOutlined style={{fontSize: 48}}/>                        
