@@ -16,7 +16,6 @@ yarn dev
 ```
 
 Account (don't need password): 
-[1] `lucy@gmail.com`
-[2] `tony@mail.com`
+```lucy@gmail.com```
 
 Open http://localhost:3000 to view it in your browser.
