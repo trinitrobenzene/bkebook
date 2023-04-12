@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import {
     DeleteFilled,
     PlusCircleOutlined,
@@ -7,31 +7,32 @@ import {
 import { Button } from 'antd';
 import './style.css';
 import { useGlobalCtx } from '../../components/GlobalContext';
+import { getBookInCart } from '../../utils/connect';
+import { Link } from 'react-router-dom';
 
 const CartData = ({ item }) => {
-    const [count, setCount] = useState(1);
-    var itemTotal = item.price * count;
+    const {detail, number} = item;
+    const [count, setCount] = useState(number);
+    var itemTotal = detail.price * count;
     return (
         <div className="product">
             <div className="product-img">
                 <input type="checkbox" />
-                <a href="#" target="_blank">
-                    <img src={item.image} />
-                </a>
+                <Link to={'/detail/'+detail.id}>
+                    <img src={detail.imgUrl} />
+                </Link>
             </div>
             <div>
                 <div>
-                    <a href="#" target="_blank">
-                        {item.name}
-                    </a>
+                    <Link to={'/detail/'+detail.id}>{detail.name}</Link>
                 </div>
-                <div className="i4">{item.price} </div>
+                <div className="i4">{detail.price}</div>
             </div>
             <div className="qty">
                 <MinusCircleOutlined
                     style={{ fontSize: 24 }}
                     onClick={() =>
-                        setCount((count) => (count === 0 ? 0 : count - 1))
+                        setCount((count) => (count <= 0 ? 0 : count - 1))
                     }
                 />
                 {count}
@@ -63,14 +64,16 @@ const DiscountData = ({ item }) => {
 };
 
 const Cart = () => {
+    const {globalCart} = useGlobalCtx();
     const [count, setCount] = useState(0);
     const [count0, setCount0] = useState(1);
     const [count1, setCount1] = useState(1);
     const [total, setTotal] = useState(0);
-    const {globalCart} = useGlobalCtx();
+    const [localCart, setLocalCart] = useState([]);
 
-    /*const [subtotal0, setItemTotal0] = useState(0)
-    const [subtotal1, setItemTotal1] = useState(0)*/
+    useEffect(() => {
+        getBookInCart(globalCart, setLocalCart);
+    }, [])
     const subtotal0 = (count, price) => {
         return count * price;
     };
@@ -136,7 +139,7 @@ const Cart = () => {
                     <div className="i6">Thành tiền </div>
                 </div>
                 <div className="product-list">
-                    {cartData.map((item, index) => (
+                    {localCart.length > 0 && localCart.map((item, index) => (
                         <CartData item={item} key={index} />
                     ))}
                 </div>

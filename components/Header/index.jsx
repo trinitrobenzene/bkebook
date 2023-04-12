@@ -3,13 +3,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import { Button, Dropdown, Input, Space } from 'antd';
 import { db } from '../../firebase-config';
 import { doc, getDoc } from 'firebase/firestore';
-<<<<<<< HEAD
 import { CaretDownFilled } from '@ant-design/icons';
 import Cookies from 'js-cookie';
-=======
-import { CaretDownFilled, ShoppingCartOutlined  } from '@ant-design/icons';
-import Cookies from 'js-cookie'
->>>>>>> a10b7a83766f3bf4732aec75fa114e7ae3bba0d7
 
 import './style.scss';
 import Authen from '../../pages/Login';
@@ -50,8 +45,6 @@ const Header = () => {
         getUserInfo(cEmail, setUser);
     }, [cEmail]);
 
-    console.log(globalUser);
-
     return (
         <header>
             <div className="mw">
@@ -81,4 +74,4 @@ const Header = () => {
     );
 };
 
-export default Header;
+export default React.memo(Header);

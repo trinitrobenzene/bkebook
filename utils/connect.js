@@ -39,6 +39,23 @@ export const getBook = (id, callback) => {
         .catch((error) => console.error(error));
 };
 
+//
+export const getBookInCart = (list, callback) => {
+    getDocs(bookCollectionRef)
+        .then((resp) => {
+            const result = [];
+            const data = resp.docs.map((item) => {
+                return { id: item.id, ...item.data() };
+            });
+            for (const item of list) {
+                const match = data.find((i) => i.id === item.id);
+                match && result.push({ number: item.amount, detail: match });
+            }
+            callback(result);
+        })
+        .catch((err) => console.error(err));
+};
+
 // This function to create a new book
 export const createBook = (book, callback) => {
     addDoc(bookCollectionRef, book)
@@ -54,7 +71,7 @@ export const getUserInfo = (email, callback) => {
             const info = resp.data();
             info.email = email;
             /**
-             * at this step, purchase and sale are document (a class of 
+             * at this step, purchase and sale are document (a class of
              * Firebase), so must resolve them into arrays.
              *  */
             getDocs(collection(db, 'user/' + info.purchase.path)).then(

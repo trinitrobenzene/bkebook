@@ -1,64 +1,24 @@
 import { Card, Carousel, Row, Col, Button } from 'antd';
-import './product.css';
 import { useEffect, useState } from 'react';
-import { getBooks } from '../../utils/connect';
 import { Link, useNavigate } from 'react-router-dom';
-/* const productList = [
-  {
-    id: 1,
-    name: 'Vật lý đại cương 1',
-    image: 'https://www.lib.hcmut.edu.vn/uploads/noidung/bai-tap-vat-ly-dai-cuong-a1-0-517.jpg',
-    price: 20000,
-  },
-  {
-    id: 2,
-    name: 'Vật lý đại cương 1',
-    image: 'https://www.lib.hcmut.edu.vn/uploads/noidung/bai-tap-vat-ly-dai-cuong-a1-0-517.jpg',
-    price: 20000,
-  },
-  {
-    id: 3,
-    name: 'Vật lý đại cương 1',
-    image: 'https://www.lib.hcmut.edu.vn/uploads/noidung/bai-tap-vat-ly-dai-cuong-a1-0-517.jpg',
-    price: 20000,
-  },
-  {
-    id: 4,
-    name: 'Vật lý đại cương 1',
-    image: 'https://www.lib.hcmut.edu.vn/uploads/noidung/bai-tap-vat-ly-dai-cuong-a1-0-517.jpg',
-    price: 20000,
-  },
-  {
-    id: 5,
-    name: 'Vật lý đại cương 1',
-    image: 'https://www.lib.hcmut.edu.vn/uploads/noidung/bai-tap-vat-ly-dai-cuong-a1-0-517.jpg',
-    price: 20000,
-  },
-  {
-    id: 6,
-    name: 'Vật lý đại cương 1',
-    image: 'https://www.lib.hcmut.edu.vn/uploads/noidung/bai-tap-vat-ly-dai-cuong-a1-0-517.jpg',
-    price: 20000,
-  },
-  {
-    id: 7,
-    name: 'Vật lý đại cương 1',
-    image: 'https://www.lib.hcmut.edu.vn/uploads/noidung/bai-tap-vat-ly-dai-cuong-a1-0-517.jpg',
-    price: 20000,
-  },
-  {
-    id: 8,
-    name: 'Vật lý đại cương 1',
-    image: 'https://www.lib.hcmut.edu.vn/uploads/noidung/bai-tap-vat-ly-dai-cuong-a1-0-517.jpg',
-    price: 20000,
-  }
-];
- */
+import { getBooks } from '../../utils/connect';
+import { useGlobalCtx } from '../../components/GlobalContext';
+import './product.css';
 
 const ProductList = () => {
+    const navigate = useNavigate();
     const [books, setBooks] = useState([]);
-    const navigate = useNavigate()
+    const { setCart, globalCart } = useGlobalCtx();
     useEffect(() => getBooks(setBooks), []);
+    const addToCart = (id) => {
+        const newItem = { id, amount: 1 };
+        if (globalCart.lenth === 0) {
+            setCart([newItem]);
+        } else {
+            const match = globalCart.find((item) => item.id === id);
+            match ? match.amount++ : setCart([newItem, ...globalCart]);
+        }
+    };
     return (
         <div>
             <div style={{ marginTop: '25px' }}>
@@ -146,18 +106,27 @@ const ProductList = () => {
             <div className="booklist">
                 {books.map((product) => (
                     <Card key={product.id}>
-                        <div className='grow-1'>
-                            <img 
-                                alt={product.name} 
+                        <div className="grow-1">
+                            <img
+                                alt={product.name}
                                 src={product.imgUrl}
-                                onClick={()=>navigate('/detail/'+product.id)}
+                                onClick={() =>
+                                    navigate('/detail/' + product.id)
+                                }
                             />
                             <h6>
-								<Link to={'/detail/'+product.id}>{product.name}</Link>
-							</h6>
+                                <Link to={'/detail/' + product.id}>
+                                    {product.name}
+                                </Link>
+                            </h6>
                             <p>{product.price} Đ</p>
                         </div>
-                        <Button type="primary">Thêm vào giỏ hàng</Button>
+                        <Button
+                            type="primary"
+                            onClick={() => addToCart(product.id)}
+                        >
+                            Thêm vào giỏ hàng
+                        </Button>
                     </Card>
                 ))}
             </div>
