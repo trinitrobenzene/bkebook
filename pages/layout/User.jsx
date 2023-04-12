@@ -1,9 +1,12 @@
 import { Col, Menu, Row } from 'antd';
 import React from 'react';
+import { Navigate, Outlet } from 'react-router-dom';
 import MenuUser from '../../components/MenuUser';
-import { Outlet } from 'react-router-dom';
+import { useGlobalCtx } from '../../components/GlobalContext';
 
 const User = () => {
+  const {globalUser} = useGlobalCtx();
+  if (!globalUser) return <Navigate to="/" />
   return (
     <>
       <Row >

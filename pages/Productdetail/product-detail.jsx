@@ -6,11 +6,13 @@ import { Rating } from '../../components';
 import { getBook } from '../../utils/connect';
 
 import './productdetail.css';
+import { useGlobalCtx } from '../../components/GlobalContext';
 
 function BookDetail() {
     const { id } = useParams();
     const [book, setBook] = useState(null);
     const [quantity, setQuantity] = useState(0);
+    const { setCart, globalCart } = useGlobalCtx();
     const aiStyle = { color: '#2F70AF', marginLeft: '5px' };
 
     // get data of book
@@ -20,6 +22,22 @@ function BookDetail() {
 
     const handleDecrease = () => setQuantity(quantity > 0 ? quantity - 1 : 0);
     const handleIncrease = () => setQuantity(quantity + 1);
+
+    const addToCart = () => {
+        const newItem = { id, amount: quantity };
+        if (globalCart.length > 0) {
+            const newCart = globalCart.map((item) => {
+                if (item.id == id) {
+                    item.amount += quantity;
+                    return item;
+                }
+                return newItem;
+            });
+            console.log("newCart: ", newCart)
+        } else setCart([newItem]);
+    };
+
+    console.log(globalCart);
 
     return (
         <div className="book-detail">
@@ -142,7 +160,10 @@ function BookDetail() {
                         >
                             Mua ngay
                         </Button>
-                        <Button style={{ marginLeft: '5px' }}>
+                        <Button
+                            style={{ marginLeft: '5px' }}
+                            onClick={addToCart}
+                        >
                             Thêm vào giỏ hàng
                         </Button>
                     </div>

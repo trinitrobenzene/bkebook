@@ -12,8 +12,8 @@ export const handleLogin = (email) => {
 };
 
 export const handleLogout = () => {
-    Cookies.remove('email', { path: '' });
-    Cookies.remove('isLogin', { path: '' });
+    Cookies.remove('email');
+    Cookies.remove('isLogin');
 };
 
 export const handleSignUp = async (name, email, password) => {

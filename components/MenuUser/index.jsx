@@ -1,5 +1,5 @@
 import React from 'react';
-import { UserOutlined,FileDoneOutlined,DollarOutlined, StarOutlined } from '@ant-design/icons';
+import { UserOutlined,FileDoneOutlined,DollarOutlined, StarOutlined, BookOutlined } from '@ant-design/icons';
 // import { MenuProps } from 'antd';
 import { Layout,Menu } from 'antd';
 import { useNavigate } from 'react-router-dom';
@@ -39,10 +39,11 @@ const MenuUser = () => {
             // defaultOpenKeys={['sub1']}
             style={{ height: '100vh', borderRight: 0 }}
             items={[
-              {label: "Profile", key:"profile", icon:<UserOutlined/>},
-              {label: "PurchaseOrder", key:"purchase", icon: <FileDoneOutlined/>},
-              {label: "SellOrder", key: "sell", icon: <DollarOutlined/>},
-              {label: "RewardHistory", key: "reward", icon: <StarOutlined/>}
+              {label: "Hồ sơ của tôi", key:"profile", icon:<UserOutlined/>},
+              {label: "Đơn mua", key:"purchase", icon: <FileDoneOutlined/>},
+              {label: "Đơn bán", key: "sell", icon: <DollarOutlined/>},
+              {label: "Lịch sử tích điểm", key: "reward", icon: <StarOutlined/>},
+              {label: "Sách của tôi", key: "mybooks", icon: <BookOutlined />}
             ]}
           />
         </Sider>

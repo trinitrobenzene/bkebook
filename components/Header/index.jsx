@@ -4,11 +4,13 @@ import { Button, Dropdown, Input, Space } from 'antd';
 import { db } from '../../firebase-config';
 import { doc, getDoc } from 'firebase/firestore';
 import { CaretDownFilled } from '@ant-design/icons';
-import Cookies from 'js-cookie'
+import Cookies from 'js-cookie';
 
 import './style.scss';
 import Authen from '../../pages/Login';
 import { handleLogout } from '../../utils/authen';
+import { getUserInfo } from '../../utils/connect';
+import { useGlobalCtx } from '../GlobalContext';
 
 const { Search } = Input;
 
@@ -17,52 +19,56 @@ const Header = () => {
     const cEmail = Cookies.get('email');
     const cLogin = Cookies.get('isLogin');
     const [loginShow, setLoginShow] = useState(false);
-    const [user, setUser] = useState(null)
+    const { globalUser, setUser, setCart } = useGlobalCtx();
 
     const onSearch = (value) => console.log(value);
     const logout = () => {
         handleLogout();
         navigate('/');
-    }
+        setUser(null);
+        setCart([]);
+    };
     const items = [
         {
             key: 0,
-            label: <Link to='/user'>Thông tin cá nhân</Link>,
+            label: <Link to="/user">Thông tin cá nhân</Link>,
         },
         {
             key: 1,
             label: <span onClick={logout}>Đăng xuất</span>,
-        }
-    ]
+        },
+    ];
 
     useEffect(() => {
         if (!cEmail) return;
-        const docRef = doc(db, "user", cEmail);
-        getDoc(docRef).then(resp => {
-            setUser({
-                id: resp.id,
-                ...resp.data()
-            })
-        });
+        getUserInfo(cEmail, setUser);
     }, [cEmail]);
+
+    console.log(globalUser);
 
     return (
         <header>
             <div className="mw">
-                <Link to='/'>
+                <Link to="/">
                     <h2>Logo</h2>
                 </Link>
                 <Search placeholder="input search text" onSearch={onSearch} />
                 <Button onClick={() => navigate('/cart')}>Giỏ hàng</Button>
-                {cLogin && user && <Dropdown menu={{ items }} trigger={['click']}>
-                    <Button>
-                        <Space>
-                            <span>Chào {user.name}</span>
-                            <CaretDownFilled />
-                        </Space>
+                {cLogin && globalUser && (
+                    <Dropdown menu={{ items }} trigger={['click']}>
+                        <Button>
+                            <Space>
+                                <span>Chào {globalUser.name}</span>
+                                <CaretDownFilled />
+                            </Space>
+                        </Button>
+                    </Dropdown>
+                )}
+                {!cLogin && (
+                    <Button onClick={() => setLoginShow(true)}>
+                        Đăng nhập
                     </Button>
-                </Dropdown>}
-                {!cLogin && <Button onClick={() => setLoginShow(true)}>Đăng nhập</Button>}
+                )}
             </div>
             {loginShow && <Authen isShow={loginShow} setShow={setLoginShow} />}
         </header>

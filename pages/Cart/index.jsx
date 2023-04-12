@@ -6,6 +6,7 @@ import {
 } from '@ant-design/icons';
 import { Button } from 'antd';
 import './style.css';
+import { useGlobalCtx } from '../../components/GlobalContext';
 
 const CartData = ({ item }) => {
     const [count, setCount] = useState(1);
@@ -40,10 +41,8 @@ const CartData = ({ item }) => {
                 />
             </div>
             <div className="sub-total">
-                {itemTotal}
-                <Button>
-                    <DeleteFilled onClick={()=>setCount(0)}/>
-                </Button>
+                <span>{itemTotal}</span>
+                <DeleteFilled onClick={() => setCount(0)} className='mx-3'/>
             </div>
         </div>
     );
@@ -68,9 +67,10 @@ const Cart = () => {
     const [count0, setCount0] = useState(1);
     const [count1, setCount1] = useState(1);
     const [total, setTotal] = useState(0);
+    const {globalCart} = useGlobalCtx();
 
     /*const [subtotal0, setItemTotal0] = useState(0)
-  const [subtotal1, setItemTotal1] = useState(0)*/
+    const [subtotal1, setItemTotal1] = useState(0)*/
     const subtotal0 = (count, price) => {
         return count * price;
     };

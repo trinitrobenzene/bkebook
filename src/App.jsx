@@ -1,5 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
-import { Footer, Header } from '../components';
+import { Footer, Header, GlobalContext } from '../components';
 import {
     Home,
     Cart,
@@ -14,7 +14,7 @@ import {
 
 function App() {
     return (
-        <>
+        <GlobalContext>
             <Header />
             <div className="App mw">
                 <Routes>
@@ -24,6 +24,7 @@ function App() {
                         <Route path="purchase" element={<UserPurchase />} />
                         <Route path="sell" element={<UserSell />} />
                         <Route path="reward" element={<UserRewards />} />
+                        <Route path="mybooks" element={<SellOldBook />} />
                     </Route>
                     <Route path="/sell" element={<SellOldBook />} />
                     <Route path="/cart" element={<Cart />} />
@@ -31,7 +32,7 @@ function App() {
                 </Routes>
             </div>
             <Footer />
-        </>
+        </GlobalContext>
     );
 }
 

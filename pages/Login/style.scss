@@ -1,9 +1,19 @@
-form#login, form#register {
-	&>div{
+form#login,
+form#register {
+	&>div {
 		margin: 1rem 0;
 	}
+
 	&>div:last-child {
 		display: flex;
 		justify-content: flex-end;
+	}
+
+	a {
+		color: cornflowerblue;
+
+		&:hover {
+			text-decoration: underline;
+		}
 	}
 }

@@ -4,13 +4,15 @@ import { Button, Input, Modal } from 'antd';
 import './style.scss';
 import { useState } from 'react';
 import { handleLogin } from '../../utils/authen';
+import { useGlobalCtx } from '../../components/GlobalContext';
 
 const Login = ({ isShow, setShow, callback }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+
     const login = () => {
         handleLogin(email);
-        setShow(false)
+        setShow(false);
     }
     return (
         <Modal
