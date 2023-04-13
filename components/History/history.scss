@@ -5,7 +5,7 @@
         padding: 12px;
         box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
         margin-bottom: 24px;
-        .header {
+        .header-item {
             display: flex;
             justify-content: space-between;
             margin-bottom: 12px;
@@ -13,14 +13,16 @@
             background-color: white;
             .status {
                 font-weight: bold;
+                display: flex;
+                align-items: center;
                 span {
                     margin-left: 8px;
                 }
             }
-            .success {
+            .complete {
                 color: green;
             }
-            .progress {
+            .inprogress {
                 color: rgb(244, 207, 41);
                 background-color: white;
             }
