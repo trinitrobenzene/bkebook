@@ -15,4 +15,7 @@ npm run dev
 yarn dev
 ```
 
+Account (don't need password): 
+```lucy@gmail.com```
+
 Open http://localhost:3000 to view it in your browser.

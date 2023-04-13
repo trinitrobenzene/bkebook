@@ -17,17 +17,28 @@ const ProfilePage = () => {
         <Col span={12} style={{ borderRight: "1px solid #ccc" }}>
           <Form
             labelCol={{span: 4}}
+            initialValues={globalUser}
+
           >
-            <Form.Item label="Họ và tên">
+            <Form.Item
+              name="name" 
+              label="Họ và tên"
+            >
               <Input placeholder="Nhập tên" style={{ width: "70%" }} />
             </Form.Item>
-            <Form.Item label="Email" >
+            <Form.Item 
+              name="email"
+              label="Email" 
+            >
               <Input placeholder="bookstore@hcmut.edu.vn" style={{ width: "70%" }} />
             </Form.Item>
-            <Form.Item label="SĐT">
+            <Form.Item 
+              label="SĐT"
+              name="phone"
+            >
               <Input placeholder="0908456053" style={{ width: "70%" }} />
             </Form.Item>
-            <Form.Item label="Giới tính" name="layout">
+            <Form.Item label="Giới tính" name="gender">
               <Radio.Group >
                 <Radio value="male">Nam</Radio>
                 <Radio value="female">Nữ</Radio>
@@ -35,7 +46,9 @@ const ProfilePage = () => {
               </Radio.Group>
             </Form.Item>
             <Form.Item>
-              <Button type="primary">Submit</Button>
+              <Button 
+                type="primary"
+              >Cập nhật</Button>
             </Form.Item>
           </Form>
         </Col>

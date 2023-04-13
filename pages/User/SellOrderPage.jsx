@@ -1,6 +1,8 @@
 import React from "react";
 import { Divider } from 'antd';
 import SellOrderItem from "../../components/History/SellOrderItem";
+import { useGlobalCtx } from '../../components/GlobalContext';
+
 function SellOrderPage() {
     const fakeData = [
         {
@@ -29,29 +31,9 @@ function SellOrderPage() {
     
           ]
         },
-        {
-            date: '27/02/2022',
-            status: 'progress',
-            method: 'Zalopay',
-            customer: {
-                name: 'Vladilena Milize',
-                phone: '123456789',
-                email: 'abc@gmail.com',
-                address: 'Thành phố Hồ Chí Minh'
-            },
-            items: [
-            {
-              name: 'Vật Lý Đại Cương 1',
-              publisher: 'Nhà xuất bản Đại học Quốc gia TP.HCM',
-              count: 1,
-              price: 120000,
-            },
-          ]
-        },
-       
       ]
 
-
+    const {globalUser} = useGlobalCtx();
 
 
     return(<div className="history">
@@ -61,7 +43,7 @@ function SellOrderPage() {
           LỊCH SỬ BÁN HÀNG
         </Divider>
         {
-          fakeData.map((item, index) => (
+          globalUser && globalUser.sale.map((item, index) => (
             <SellOrderItem order={item} key={index}/>
           ))
         }
