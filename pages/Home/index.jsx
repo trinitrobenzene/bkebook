@@ -8,16 +8,10 @@ import './product.css';
 const ProductList = () => {
     const navigate = useNavigate();
     const [books, setBooks] = useState([]);
-    const { setCart, globalCart } = useGlobalCtx();
+    const { addToCart } = useGlobalCtx();
     useEffect(() => getBooks(setBooks), []);
-    const addToCart = (id) => {
-        const newItem = { id, amount: 1 };
-        if (globalCart.lenth === 0) {
-            setCart([newItem]);
-        } else {
-            const match = globalCart.find((item) => item.id === id);
-            match ? match.amount++ : setCart([newItem, ...globalCart]);
-        }
+    const add = (id) => {
+        addToCart(id);
     };
     return (
         <div>
@@ -123,7 +117,7 @@ const ProductList = () => {
                         </div>
                         <Button
                             type="primary"
-                            onClick={() => addToCart(product.id)}
+                            onClick={() => add(product.id)}
                         >
                             Thêm vào giỏ hàng
                         </Button>

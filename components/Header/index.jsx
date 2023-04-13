@@ -1,19 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Button, Dropdown, Input, Space } from 'antd';
-import { db } from '../../firebase-config';
-import { doc, getDoc } from 'firebase/firestore';
 import { CaretDownFilled } from '@ant-design/icons';
 import Cookies from 'js-cookie';
 
 import './style.scss';
 import Authen from '../../pages/Login';
+// import Logo from '../../public/bkebook_logo.png';
 import { handleLogout } from '../../utils/authen';
 import { getUserInfo } from '../../utils/connect';
 import { useGlobalCtx } from '../GlobalContext';
 
 const { Search } = Input;
-
 
 const Header = () => {
     const navigate = useNavigate();

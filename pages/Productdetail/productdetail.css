@@ -17,6 +17,12 @@
     margin-bottom: 0 !important;
 }
 
+.text textarea {
+    height: 200px;
+    resize: none;
+    border: none;
+}
+
 .icon-24 {
     font-size: 24px;
     cursor: pointer;

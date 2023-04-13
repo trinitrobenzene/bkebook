@@ -2,6 +2,7 @@ import React, { memo, useState } from 'react';
 import { Modal, Form, Input, Select, Upload, InputNumber, Button } from 'antd';
 import TextArea from 'antd/es/input/TextArea';
 import { createBook } from '../../utils/connect';
+import { useGlobalCtx } from '../../components/GlobalContext';
 
 function AddBook({ onClose, isModalVisible }) {
     const [name, setName] = useState('');
@@ -9,10 +10,12 @@ function AddBook({ onClose, isModalVisible }) {
     const [authors, setAuthors] = useState([]);
     const [publisher, setPublisher] = useState('');
     const [tags, setTags] = useState([]);
+    const [year, setYear] = useState('');
     const [amount, setAmount] = useState(0);
     const [price, setPrice] = useState(0);
     const [img, setImg] = useState('');
     const [msg, setMsg] = useState('');
+    const {globalUser} = useGlobalCtx();
 
     const handleAddBook = () => {
         const book = {
@@ -23,9 +26,8 @@ function AddBook({ onClose, isModalVisible }) {
             price,
             imgUrl: img,
             public: { publisher, year: 2021 },
-            year: 2021,
             description: desc,
-            sellerID: 'admin@mail.com',
+            sellerID: globalUser.email,
         };
 
         createBook(book, (msg) => {
@@ -108,7 +110,7 @@ function AddBook({ onClose, isModalVisible }) {
                     />
                 </Form.Item>
                 <Form.Item label="Năm xuất bản" name="year">
-                    <Input value="2021" />
+                    <Input onChange={(e)=>setYear(e.target.value)} placeholder='2021'/>
                 </Form.Item>
                 <Form.Item label="Ảnh đính kèm" name="attachment">
                     <Input

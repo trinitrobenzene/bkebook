@@ -60,7 +60,7 @@ const SellOldBook = () => {
     return (
         <div className="sell-old-book">
             <Divider orientation="left">
-                <h3>Sách của tôi</h3>
+                <h3>SÁCH CỦA TÔI</h3>
             </Divider>
             <div className="action">
                 <div className="filter">

@@ -1,0 +1,11 @@
+.payment {
+    display: grid;
+    grid-template-columns: 64% auto;
+    gap: 1rem;
+
+    form {
+        input {
+            width: 100%;
+        }
+    }
+}

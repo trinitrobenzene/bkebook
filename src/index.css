@@ -29,6 +29,7 @@
     min-height: 100vh;
 }
 
+
 .App {
     flex-grow: 1;
 }
@@ -36,4 +37,34 @@
 .mw {
     width: 1280px;
     margin: auto;
+}
+
+@media only screen and (max-width: 600px) {
+    .mw {
+        width: 480px;
+    }
+
+    .booklist {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .mw {
+        width: 600px;
+    }
+
+    .booklist {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    .mw {
+        width: 840px;
+    }
+
+    .booklist {
+        grid-template-columns: repeat(4, 1fr);
+    }
 }

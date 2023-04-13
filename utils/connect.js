@@ -39,7 +39,7 @@ export const getBook = (id, callback) => {
         .catch((error) => console.error(error));
 };
 
-//
+// This function to get information about books contained in cart
 export const getBookInCart = (list, callback) => {
     getDocs(bookCollectionRef)
         .then((resp) => {
@@ -49,7 +49,12 @@ export const getBookInCart = (list, callback) => {
             });
             for (const item of list) {
                 const match = data.find((i) => i.id === item.id);
-                match && result.push({ number: item.amount, detail: match });
+                match &&
+                    result.push({
+                        number: item.amount,
+                        checked: false,
+                        detail: match,
+                    });
             }
             callback(result);
         })

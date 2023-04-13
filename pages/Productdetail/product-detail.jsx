@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { Row, Col, Button, Rate, Carousel } from 'antd';
+import TextArea from 'antd/es/input/TextArea';
 import { PlusCircleTwoTone, MinusCircleTwoTone } from '@ant-design/icons';
 import { Rating } from '../../components';
 import { getBook } from '../../utils/connect';
@@ -10,34 +11,23 @@ import { useGlobalCtx } from '../../components/GlobalContext';
 
 function BookDetail() {
     const { id } = useParams();
+    const navigate = useNavigate();
     const [book, setBook] = useState(null);
     const [quantity, setQuantity] = useState(0);
-    const { setCart, globalCart } = useGlobalCtx();
+    const { globalCart, addToCart } = useGlobalCtx();
     const aiStyle = { color: '#2F70AF', marginLeft: '5px' };
 
-    // get data of book
-    useEffect(() => {
-        getBook(id, setBook);
-    }, [id]);
+    useEffect(() => getBook(id, setBook), [id]);
 
     const handleDecrease = () => setQuantity(quantity > 0 ? quantity - 1 : 0);
     const handleIncrease = () => setQuantity(quantity + 1);
-
-    const addToCart = () => {
-        const newItem = { id, amount: quantity };
-        if (globalCart.length > 0) {
-            const newCart = globalCart.map((item) => {
-                if (item.id == id) {
-                    item.amount += quantity;
-                    return item;
-                }
-                return newItem;
-            });
-            console.log("newCart: ", newCart)
-        } else setCart([newItem]);
+    const handleDirect = () => {
+        addToCart(id);
+        navigate('/cart');
     };
-
-    console.log(globalCart);
+    const handleAdd = () => {
+        addToCart(id, quantity);
+    };
 
     return (
         <div className="book-detail">
@@ -151,19 +141,11 @@ function BookDetail() {
                         />
                     </div>
                     <p className="text">Số lượng còn lại: {book?.amount}</p>
-                    <div style={{ display: 'flex', marginTop: '10px' }}>
-                        <Button
-                            style={{
-                                backgroundColor: '#2F70AF',
-                                width: '150px',
-                            }}
-                        >
+                    <div className="d-flex mt-3">
+                        <Button type="primary" onClick={handleDirect}>
                             Mua ngay
                         </Button>
-                        <Button
-                            style={{ marginLeft: '5px' }}
-                            onClick={addToCart}
-                        >
+                        <Button className="ml-3" onClick={handleAdd}>
                             Thêm vào giỏ hàng
                         </Button>
                     </div>
@@ -173,7 +155,10 @@ function BookDetail() {
             <div className="header-detail">
                 <p className="text-title">MÔ TẢ CHI TIẾT</p>
             </div>
-            <p className="text"> {book?.description}</p>
+            <p className="text">
+                <TextArea value={book?.description} readOnly/>
+            </p>
+
             <Rating />
         </div>
     );
