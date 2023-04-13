@@ -1,11 +1,20 @@
 .payment {
-    display: grid;
-    grid-template-columns: 64% auto;
-    gap: 1rem;
-
     form {
+        display: grid;
+        grid-template-columns: 64% auto;
+        gap: 1rem;
+
+        .ant-row .ant-form-item-row {
+            display: grid;
+            grid-template-columns: 120px auto;
+        }
+
         input {
             width: 100%;
+        }
+
+        input[type="radio"] {
+            width: auto;
         }
     }
 }

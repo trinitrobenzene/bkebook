@@ -10,14 +10,15 @@
   },
   "dependencies": {
     "@ant-design/icons": "^5.0.1",
-    "firebase": "^9.19.1",
     "bootstrap": "^5.2.3",
+    "firebase": "^9.19.1",
     "react": "^18.2.0",
     "react-bootstrap": "^2.7.2",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.10.0"
   },
   "devDependencies": {
+    "@paypal/react-paypal-js": "^7.8.3",
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
     "@vitejs/plugin-react": "^3.1.0",

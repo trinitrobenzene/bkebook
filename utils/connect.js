@@ -1,5 +1,14 @@
 import { db } from '../firebase-config';
-import { collection, doc, getDoc, getDocs, addDoc } from 'firebase/firestore';
+import {
+    collection,
+    doc,
+    getDoc,
+    getDocs,
+    addDoc,
+    collectionGroup,
+    Timestamp,
+    serverTimestamp,
+} from 'firebase/firestore';
 
 const bookCollectionRef = collection(db, 'book');
 
@@ -92,5 +101,12 @@ export const getUserInfo = (email, callback) => {
             });
             callback(info);
         })
+        .catch((err) => console.error(err));
+};
+
+export const createOrder = (order, email, callback) => {
+    const orderCollectionRef = collection(db, `user/${email}/purchaseHistory`);
+    addDoc(orderCollectionRef, { orderDate: '', ...order })
+        .then(() => callback())
         .catch((err) => console.error(err));
 };

@@ -15,10 +15,10 @@ const CartData = ({ item, callback }) => {
     const { detail, number } = item;
     const [count, setCount] = useState(number);
     const [check, setCheck] = useState(item.checked);
-    const cost = detail.price * count;
     const handleChecked = () => {
         item.checked = !check;
-        callback(item.checked ? cost : -cost);
+        item.number = count;
+        callback(item.checked ? detail.price * count : -detail.price * count);
         setCheck(!check);
     };
 
@@ -55,7 +55,7 @@ const CartData = ({ item, callback }) => {
                 />
             </div>
             <div className="sub-total">
-                <span>{cost}</span>
+                <span>{detail.price * count}</span>
                 <DeleteFilled onClick={() => setCount(0)} className="mx-3" />
             </div>
         </div>
@@ -137,6 +137,8 @@ const Cart = () => {
         },
     ];
 
+    console.log(localCart)
+
     return (
         <>
             <Divider orientation="left">
@@ -201,7 +203,7 @@ const Cart = () => {
                 width="70%"
                 footer={null}
             >
-                <Payment />
+                <Payment items={globalCart} cost={total} close={setOpen}/>
             </Modal>
         </>
     );
