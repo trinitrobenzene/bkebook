@@ -10,6 +10,7 @@ import {
     UserPurchase,
     UserRewards,
     UserSell,
+    ProductOfUser
 } from '../pages';
 
 function App() {
@@ -26,6 +27,8 @@ function App() {
                         <Route path="reward" element={<UserRewards />} />
                         <Route path="mybooks" element={<SellOldBook />} />
                     </Route>
+                    <Route path="/productofuser" element={<ProductOfUser />} />
+
                     <Route path="/sell" element={<SellOldBook />} />
                     <Route path="/cart" element={<Cart />} />
                     <Route path="/detail/:id" element={<BookDetail />} />
