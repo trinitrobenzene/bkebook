@@ -3,9 +3,10 @@ import { Link, useNavigate } from 'react-router-dom';
 import { Button, Dropdown, Input, Space } from 'antd';
 import { CaretDownFilled } from '@ant-design/icons';
 import Cookies from 'js-cookie';
-
+import { DownOutlined } from '@ant-design/icons';
 import './style.scss';
 import Authen from '../../pages/Login';
+import Drop from './dropdown';
 // import Logo from '../../public/bkebook_logo.png';
 import { handleLogout } from '../../utils/authen';
 import { getUserInfo } from '../../utils/connect';
@@ -43,13 +44,15 @@ const Header = () => {
         getUserInfo(cEmail, setUser);
     }, [cEmail]);
 
+    
     return (
         <header>
             <div className="mw header-container">
                 <Link to="/">
                     <img src="./bkebook_logo.png" className="logo-header" alt="logo"/>
                 </Link>
-                <Search placeholder="input search text" onSearch={onSearch} />
+                <Drop/>
+                <Search  placeholder="" onSearch={onSearch} />
                 <Button onClick={() => navigate('/cart')}>Giỏ hàng</Button>
                 {cLogin && globalUser && (
                     <Dropdown menu={{ items }} trigger={['click']}>

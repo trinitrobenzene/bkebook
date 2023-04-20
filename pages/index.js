@@ -7,3 +7,4 @@ export { default as UserSell } from './User/SellOrderPage';
 export { default as UserProfile } from './User/ProfilePage';
 export { default as UserRewards } from './User/RewardHistory';
 export { default as UserPurchase } from './User/PurchaseOrderPage';
+export { default as ProductOfUser } from './ProductOfUser';

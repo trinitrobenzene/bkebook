@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
-import { Row, Col, Button, Rate, Carousel } from 'antd';
+import { useNavigate, useParams, Link } from 'react-router-dom';
+import { Row, Col, Button, Rate, Carousel} from 'antd';
 import TextArea from 'antd/es/input/TextArea';
 import { PlusCircleTwoTone, MinusCircleTwoTone } from '@ant-design/icons';
 import { Rating } from '../../components';
@@ -26,7 +26,8 @@ function BookDetail() {
         navigate('/cart');
     };
     const handleAdd = () => {
-        addToCart(id, quantity);
+        if (quantity > 0){
+        addToCart(id, quantity);}
     };
 
     return (
@@ -72,8 +73,7 @@ function BookDetail() {
                             <img
                                 style={{
                                     objectFit: 'cover',
-                                    width: '75%',
-                                    height: '150px',
+                                    width: '75%',height: '150px',
                                 }}
                                 src={book.image}
                                 alt="image3"
@@ -125,6 +125,10 @@ function BookDetail() {
                             </span>
                         ))}
                     </p>
+                    <p className="text">
+                        Người bán:
+                        <Link to='/productofuser'>Nguyễn Văn A</Link>
+                    </p>
                     <Rate disabled defaultValue={5} />
                     <h3 className="my-3"> {book?.price} Đ </h3>
                     <div className="d-flex align-items-center my-3">
@@ -135,8 +139,7 @@ function BookDetail() {
                         <h4 className="px-4" style={{ marginBottom: 0 }}>
                             {quantity}
                         </h4>
-                        <PlusCircleTwoTone
-                            className="icon-24"
+                        <PlusCircleTwoTone className="icon-24"
                             onClick={handleIncrease}
                         />
                     </div>
